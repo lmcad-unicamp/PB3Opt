@@ -35,15 +35,17 @@ class CloudSearch:
         self.plot = args.plot
         self.df = None
         self.mode = args.mode
+        self.train = args.train
         self.objective = args.objective
         if(self.verbose):
             self.log = Log()
             self.log.printArgs(args)
 
     def runAnalisses(self, r_app, r, order):
-        #my_mins = utils.get_top_list(3, r_app)
-        #c_mins = utils.get_top_list(3, r)
-        return 1 - spatial.distance.cosine(r_app, r)
+        #return 1 - spatial.distance.cosine(r_app, r)
+        my_mins = utils.get_top_list(5, r_app)
+        c_mins = utils.get_top_list(5, r)
+
         b = 0
     
         for my_index in my_mins:
@@ -54,10 +56,10 @@ class CloudSearch:
         return b
 
     def getAnalisses(self, r_app, r, order):
-        #my_mins = utils.get_top_list(5, r_app)
-        #c_mins = utils.get_top_list(5, r)
+        #return 1 - spatial.distance.cosine(r_app, r)
+        my_mins = utils.get_top_list(5, r_app)
+        c_mins = utils.get_top_list(5, r)
 
-        return 1 - spatial.distance.cosine(r_app, r)
         b = 0
     
         for my_index in my_mins:
@@ -186,7 +188,7 @@ class CloudSearch:
             if(self.verbose):
                 self.log.printError(error)
 
-    def runFold(self, path, k, X_train, y_train, X_test, y_test):
+    def runFold(self, rnum, path, k, X_train, y_train, X_test, y_test):
         args = {
                 'benchname': None,
                 'benchinput': None,
@@ -220,7 +222,47 @@ class CloudSearch:
             if(args['mode'] == 'RS'):
                 ranksearch.run_rs(args)
             else:
-                bosearch.run_bo(args)
+                bosearch.run_bo(args, rnum)
+
+        return acc
+
+    def runTest(self, rnum, path, k, X_train, y_train, X_test, y_test):
+        args = {
+                'benchname': None,
+                'benchinput': None,
+                'instname': self.InstancesFile,
+                'dfname': self.DatasetFile,
+                'ranking': [],
+                'ranking_order': [],
+                'obj': self.objective,
+                'mode': self.mode,
+                'outname': path,
+                'initial': self.initial,
+                'iterations': self.iterations
+        }
+        acc = []
+
+        for i in range(len(X_test)):
+            name = X_test.iloc[i]['name']
+            my_name = name.split('-')[0]
+            my_input = name.split('-')[1]
+
+            r_app = ranking.get_app_rank(my_name, my_input, self.dataset, self.instances)
+            target = self.getAppTarget(y_test[i], 0, r_app, X_train, y_train, k)
+            print(target)
+            order, rank = ranking.get_rank(target, self.dataset, self.instances, X_train, y_train)
+            b = self.runAnalisses(r_app, rank, order)
+
+            args['benchname'] = my_name
+            args['benchinput'] = my_input
+            args['ranking'] = rank
+            args['ranking_order'] = order
+            acc.append(b)
+
+            #if(args['mode'] == 'RS'):
+            #    ranksearch.run_rs(args)
+            #else:
+            #    bosearch.run_bo(args, rnum)
 
         return acc
 
@@ -228,26 +270,45 @@ class CloudSearch:
         random_n = 5
         times = 1
         acc_g = []
-        for rnum in random.sample(range(0, 100), random_n):
-            kf = KFold(n_splits=k, shuffle=True, random_state=rnum)
-            fold = 1
-            for train_index, test_index in kf.split(self.df):
-                path = self.OutputPath + '-' + str(times) + '-' + str(fold) + '/'
+        if(self.train):
+            for rnum in random.sample(range(0, 100), random_n):
+                kf = KFold(n_splits=k, shuffle=True, random_state=rnum)
+                fold = 1
+                for train_index, test_index in kf.split(self.df):
+                    path = self.OutputPath + '-' + str(times) + '-' + str(fold) + '/'
+                    self.create_dir(path)
+                    X_train = self.df.iloc[train_index]
+                    X_test = self.df.iloc[test_index]
+
+                    print(len(X_train))
+                    print(len(X_test))
+
+                    model = Classifier(rnum)
+                    auto_k, y_train, y_test = model.run(X_train, X_test)
+                    acc = self.runFold(rnum, path, auto_k, X_train, y_train, X_test, y_test)
+                    if(self.verbose):
+                        self.log.printFold(times, fold, acc)
+                        self.log.printK(auto_k)
+                    acc_g.append(sum(acc)/len(acc))
+                    fold += 1
+                times += 1
+            self.log.printAccuracy(acc_g)
+        else:
+            for rnum in random.sample(range(0, 100), random_n):
+                path = self.OutputPath + '-' + str(times) + '/'
                 self.create_dir(path)
-                X_train = self.df.iloc[train_index]
-                X_test = self.df.iloc[test_index]
-
-                print(len(X_train))
-                print(len(X_test))
-
+                X_test = self.df.head(26)
+                X_train = self.df.tail(37)
                 model = Classifier(rnum)
                 auto_k, y_train, y_test = model.run(X_train, X_test)
-
-                acc = self.runFold(path, auto_k, X_train, y_train, X_test, y_test)
-                if(self.verbose):
-                    self.log.printFold(times, fold, acc)
-                    self.log.printK(auto_k)
-                acc_g.append(sum(acc)/len(acc))
-                fold += 1
-            times += 1
-        self.log.printAccuracy(acc_g)
+                print(X_test)
+                print(X_train)
+                #print(y_test)
+                #model.plotDF(X_train, X_test, y_test)
+                #model.runKMeans(X_test, 6)
+                #acc = self.runTest(rnum, path, auto_k, X_train, y_train, X_test, y_test)
+                #self.log.printAccuracy(acc)
+                #acc_g.append(sum(acc)/len(acc))
+                times += 1
+                break
+            #self.log.printAccuracy(acc_g)

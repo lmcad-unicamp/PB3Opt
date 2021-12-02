@@ -64,6 +64,11 @@ parser.add_argument(
         '--verbose',
         help='Print Iteration Results',
         action='store_true')
+parser.add_argument(
+        '-t',
+        '--train',
+        help='Run training mode',
+        action='store_true')
 
 # ----------------------------------------------------------------------------
 

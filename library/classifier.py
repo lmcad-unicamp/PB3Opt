@@ -39,7 +39,7 @@ class Classifier:
         model = KMeans(n_clusters=k, random_state=self.random_state)
         model.fit(X)
         y_kmeans = model.predict(X)
-        labels = ['classe 1', 'classe 2', 'classe 3', 'classe 4', 'centroide']
+        labels = ['Classe 1', 'Classe 2', 'Classe 3', 'Classe 4', 'Centroide']
         t = pd.DataFrame(X.copy())
         t['cluster'] = y_kmeans
         f = plt.figure()
@@ -53,42 +53,72 @@ class Classifier:
         #f.savefig("kmeans.pdf", bbox_inches='tight')
 
     def runKMeans(self, df, k):
-        sns.set()
-        #X = np.array(df.drop('name', axis=1))
-        #model = KMeans(n_clusters=k, random_state=self.random_state)
-        #model.fit(X)
-        #y_kmeans = model.predict(X)
-        #labels = ['classe 1', 'classe 2', 'classe 3', 'classe 4', 'centroide']
-        #t = df.copy()
-        #t['cluster'] = y_kmeans
-        #f = plt.figure()
-        #ax = sns.scatterplot(x=0, y=1, hue="cluster", data=t, palette='deep', s=50);
-        #for i in range(len(y_kmeans)):
-        #    ax.annotate(df['name'].iloc[i], (X[i,0], X[i,1]),  fontsize=8)
-
-        #centers = model.cluster_centers_
-        #ax.scatter(centers[:, 0], centers[:, 1], c='black', s=20, alpha=0.6, label='center');
-        #h,l = ax.get_legend_handles_labels()
-        #ax.legend(h, labels) 
-        #plt.xlabel('Componente Principal 1')
-        #plt.ylabel('Componente Principal 2')
-        #f.savefig("kmeans.pdf", bbox_inches='tight')
-
-    def plotDF(self, df):
-        sns.set_theme()
         X = np.array(df.drop('name', axis=1))
-        f = plt.figure()
+        model = KMeans(n_clusters=k, random_state=self.random_state)
+        model.fit(X)
+        y_kmeans = model.predict(X)
+        labels = ['Classe 1', 'Classe 2', 'Classe 3', 'Classe 4', 'Classe 5', 'Classe 6','Centroide']
         t = df.copy()
-        ax = sns.scatterplot(x=0, y=1, data=t, palette='deep', s=50);
-        for i in range(len(df)):
+        t['cluster'] = y_kmeans
+        f = plt.figure()
+        ax = sns.scatterplot(x=0, y=1, hue="cluster", data=t, palette='deep', s=50);
+        for i in range(len(y_kmeans)):
             ax.annotate(df['name'].iloc[i], (X[i,0], X[i,1]),  fontsize=8)
 
-        ##centers = model.cluster_centers_
-        ##ax.scatter(centers[:, 0], centers[:, 1], c='black', s=20, alpha=0.6, label='center');
-        ##h,l = ax.get_legend_handles_labels()
-        ##ax.legend(h, labels) 
+        centers = model.cluster_centers_
+        ax.scatter(centers[:, 0], centers[:, 1], c='black', s=20, alpha=0.9, label='center', marker='x');
+
+        h,l = ax.get_legend_handles_labels()
+        ax.legend(h, labels) 
+
+        plt.grid()
+        ax.set_axisbelow(True)
         plt.xlabel('Componente Principal 1')
         plt.ylabel('Componente Principal 2')
+        f.savefig("kmeans.pdf", bbox_inches='tight')
+
+    def plotDF(self, df, df2, y):
+        zeros = []
+        for i in range(len(df)):
+            zeros.append(6)
+
+        ones = []
+        for i in range(len(df2)):
+            ones.append(1)
+
+        f = plt.figure()
+        X = np.array(df.drop('name', axis=1))
+        t = df.copy()
+
+        t['cluster'] = zeros
+        t2 = df2.copy()
+        t2['cluster'] = y
+
+        t3 = t2.append(t)
+        t3 = t2
+        print(t2)
+        print(t)
+
+        #ax = sns.scatterplot(x=0, y=1, hue="cluster", data=t, palette='deep', s=50);
+
+        ax = sns.scatterplot(x=0, y=1, hue="cluster", data=t3, palette='deep', s=50);
+
+        X = np.array(df2.drop('name', axis=1))
+        for i in range(len(df2)):
+            ax.annotate(df2['name'].iloc[i], (X[i,0], X[i,1]),  fontsize=8)
+
+        #X = np.array(df.drop('name', axis=1))
+        #for i in range(len(df)):
+        #    ax.annotate(df['name'].iloc[i], (X[i,0], X[i,1]),  fontsize=8)
+
+        labels = ['Conjunto de Treino', 'Conjunto de Teste']
+        h,l = ax.get_legend_handles_labels()
+        ax.legend(h, labels, loc='lower right') 
+
+        plt.xlabel('Componente Principal 1')
+        plt.ylabel('Componente Principal 2')
+        plt.grid()
+        ax.set_axisbelow(True)
         f.savefig("kmeans.pdf", bbox_inches='tight')
 
     def calculate_wcss(self, data):
@@ -127,8 +157,4 @@ class Classifier:
         k = self.fit(train_drop)
         y_train = self.predict(train_drop)
         y_test = self.predict(test_drop)
-
         return k, y_train, y_test
-
-if __name__ == '__main__':
-    main()

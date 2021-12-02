@@ -9,6 +9,7 @@ import GPy
 from GPyOpt.acquisitions.base import AcquisitionBase
 from GPyOpt.acquisitions.EI import AcquisitionEI
 from GPyOpt.methods import BayesianOptimization
+from numpy.random import seed
 
 # -------------------------------------------------------------------
 
@@ -89,16 +90,19 @@ class Mode(Enum):
     BO2 = 1
     BO3 = 2
     BO4 = 3
+    BO5 = 4
 
 def get_mode(mode_str):
-    if(mode_str == 'BO1'): # BO Default
+    if(mode_str == 'BO1'):   # BO Default
         return Mode.BO1
     elif(mode_str == 'BO2'): # BO with classification
         return Mode.BO2
     elif(mode_str == 'BO3'): # BO Default (initials)
         return Mode.BO3
-    elif(mode_str == 'BO4'): # BO v2
+    elif(mode_str == 'BO4'): # BO with classification v2
         return Mode.BO4
+    elif(mode_str == 'BO5'): # BO with classification v2 without initials
+        return Mode.BO5
 
 class OBJ(Enum):
     OBJ1 = 0
@@ -107,14 +111,14 @@ class OBJ(Enum):
     OBJ4 = 3
 
 def get_obj(obj_str):
-    if(obj_str == 'OBJ1'): # Total Time
+    if(obj_str == 'OBJ1'):   # Total Time
         return OBJ.OBJ1
     elif(obj_str == 'OBJ2'): # Total Cost
         return OBJ.OBJ2
     elif(obj_str == 'OBJ3'): # Total Time 5PI
-        return OBJ.OBJ5
+        return OBJ.OBJ3
     elif(obj_str == 'OBJ4'): # Total Cost 5PI
-        return OBJ.OBJ6
+        return OBJ.OBJ4
 
 #-------------------------------------------------------------------
 
@@ -185,6 +189,17 @@ def get_cost_max():
             cmax = c
     return cmax*2
 
+def get_pi_max():
+    global BenchName, BenchInput
+    query = dataset[(dataset['app_name'] == BenchName) & (dataset['input'] == BenchInput)]
+    cmax = 0
+    for index, row in query.iterrows():
+        p = get_price_name(row['cluster'])
+        c = ((float(row['pi_5'])/60)/60)*p
+        if(c > cmax):
+            cmax = c
+    return cmax*2
+
 def get_5pitime(x):
     global BenchName, BenchInput
     cluster = get_cluster_name(x)
@@ -193,8 +208,6 @@ def get_5pitime(x):
     if(len(query) == 0):
         return 0
     ttime = float(query['pi_5'])
-    if(ttime <= 0):
-        return 0
     return ttime
 
 def get_runtime(x):
@@ -246,7 +259,7 @@ def objective4(x):
     runtime = get_5pitime(x)
     price = get_price(x)
     if(runtime == 0):
-        return 100000
+        return get_pi_max()
     return ((runtime/60)/60)*price
 
 def objective(x):
@@ -318,7 +331,7 @@ def get_initials():
 
 # -------------------------------------------------------------------
 
-def run_bo(args):
+def run_bo(args, my_seed):
     global BenchName, BenchInput, instances, dataset, ObjBO, ModeBO, ranking, order, plot
     InstancesFile  = args['instname']
     DatasetFile    = args['dfname']
@@ -337,7 +350,7 @@ def run_bo(args):
     instances = pd.read_csv(InstancesFile, index_col=False, sep=',')
     dataset = pd.read_csv(DatasetFile, index_col=False, sep=',')
 
-    seed(0)
+    seed(my_seed)
     set_obj()
     domain = get_domain()
 
@@ -352,7 +365,7 @@ def run_bo(args):
             optimizer=aquisition_optimizer)
     evaluator = GPyOpt.core.evaluators.Sequential(acquisition)
 
-    if(ModeBO == Mode.BO1):
+    if(ModeBO == Mode.BO1 or ModeBO == Mode.BO5):
         bo = GPyOpt.methods.ModularBayesianOptimization(
                 model,
                 space,

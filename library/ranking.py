@@ -50,8 +50,10 @@ def get_app_rank(BenchName, BenchInput, dataset, instances):
         rank_list[b] += my_index
         my_index += 1
         count_app += 1
+    # to invert
     #for i in range(len(rank_list)):
     #    rank_list[i] = (len(clusters)-rank_list[i]) + 1
+    return [x if x > 0 else len(clusters) for x in rank_list]
     return rank_list
 
 def get_rank(c, dataset, instances, X, y):

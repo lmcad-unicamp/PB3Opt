@@ -50,9 +50,9 @@ def get_obj(obj_str):
     elif(obj_str == 'OBJ2'): # Total Cost
         return OBJ.OBJ2
     elif(obj_str == 'OBJ3'): # Total Time 5PI
-        return OBJ.OBJ5
+        return OBJ.OBJ3
     elif(obj_str == 'OBJ4'): # Total Cost 5PI
-        return OBJ.OBJ6
+        return OBJ.OBJ4
 
 #-------------------------------------------------------------------
 
@@ -162,11 +162,22 @@ def objective3(x):
         return 100000
     return (runtime/60)/60
 
+def get_pi_max():
+    global BenchName, BenchInput
+    query = dataset[(dataset['app_name'] == BenchName) & (dataset['input'] == BenchInput)]
+    cmax = 0
+    for index, row in query.iterrows():
+        p = get_price_name(row['cluster'])
+        c = ((float(row['pi_5'])/60)/60)*p
+        if(c > cmax):
+            cmax = c
+    return cmax*2
+
 def objective4(x):
     runtime = get_5pitime(x)
     price = get_price(x)
     if(runtime == 0):
-        return 100000
+        return get_pi_max()
     return ((runtime/60)/60)*price
 
 def objective(x):
