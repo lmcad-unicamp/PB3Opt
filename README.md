@@ -38,7 +38,8 @@ optional arguments:
 An example of use would be:
 
 ```
-python main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
+python main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv 
+  -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
 ```
 
 ## LICENSE
