@@ -1,4 +1,4 @@
-# PB3Opt (Profile-Based Bayesian Optimization)
+# PB3Opt (Profile-Based Biased Bayesian Optimization)
 
 PB3Opt implements Cloud Configuration Bayesian Search.
 
