@@ -1,7 +1,7 @@
 # PB3Opt
 
 
-Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) wth Python 3.8.
+Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8.
 
 ## LICENSE
 
