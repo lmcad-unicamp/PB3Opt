@@ -1,11 +1,10 @@
 # PB3Opt
 
 
-Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8.
 
 ## Usage
 
-You can easily use it using the following commands:
+Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPyOpt, you can easily use it using the following commands:
 
 ```
 usage: main.py [-h] [-df DFNAME] [-dfi DFINAME] [-dfapp DFAPPNAME] [-o OUTPUT]
