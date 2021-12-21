@@ -45,4 +45,4 @@ python main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/d
 ## LICENSE
 
 This project is being developed at the Institute of Computing - Unicamp as part of @thaisacs master dissertation.
-You are free to contact lmcad and use this code under the [MIT LICENSE](https://choosealicense.com/licenses/mit/).
+You are free use this code under the [MIT LICENSE](https://choosealicense.com/licenses/mit/).
