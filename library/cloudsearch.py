@@ -17,7 +17,7 @@ from library import utils
 from library import bosearch
 from scipy import spatial
 
-#========================================================================================
+# --------------------------------------------------------------------------------------------
 
 class CloudSearch:
     def __init__(self, args):
@@ -36,9 +36,8 @@ class CloudSearch:
         self.mode = args.mode
         self.train = args.train
         self.objective = args.objective
-        if(self.verbose):
-            self.log = Log()
-            self.log.printArgs(args)
+        self.log = Log()
+        self.log.printArgs(args)
 
     def runAnalisses(self, r_app, r, order):
         return 1 - spatial.distance.cosine(r_app, r)
@@ -304,7 +303,8 @@ class CloudSearch:
                 X_test = self.df.head(26)
                 X_train = self.df.tail(38)
                 model = Classifier(rnum)
-                #model.plotDF(X_train, X_test)
+                if(self.plot):
+                    model.plotDF(X_train, X_test)
                 auto_k, y_train, y_test = model.run(X_train, X_test)
                 acc = self.runTest(rnum, path, auto_k, X_train, y_train, X_test, y_test)
                 self.log.printAccuracy(acc)

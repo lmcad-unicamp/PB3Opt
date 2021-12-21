@@ -294,6 +294,3 @@ def run_rs(args):
 
     get_optima()
     f = open(OutputFile + '.info', 'w')
-
-if __name__ == '__main__':
-    main()

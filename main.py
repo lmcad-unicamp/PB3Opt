@@ -3,9 +3,8 @@
 import argparse
 import random
 from library.cloudsearch import CloudSearch
-from library.bosearch import run_bo
 
-# ----------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
 
 parser = argparse.ArgumentParser(description='Cloud Configuration Bayesian Search.\n')
 parser.add_argument(
@@ -70,7 +69,7 @@ parser.add_argument(
         help='Run training mode',
         action='store_true')
 
-# ----------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
 
 def main():
     random.seed(0)

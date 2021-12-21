@@ -12,8 +12,7 @@ from GPyOpt.methods import BayesianOptimization
 from numpy.random import seed
 import matplotlib.pyplot as plt
 
-
-# -------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
 
 # Input parameters
 instances = []
@@ -31,7 +30,7 @@ BenchName = ''
 BenchInput = ''
 BenchTarget = 0
 
-# -------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
 
 class AcquisitionNew(AcquisitionBase):
     analytical_gradient_prediction = False
@@ -85,7 +84,7 @@ class AcquisitionNew(AcquisitionBase):
         acqu_x, acqu_x_grad = self.EI.acquisition_function_withGradients(x)
         return acqu_x, acqu_x_grad
 
-##-------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
 
 class Mode(Enum):
     BO1 = 0
@@ -122,7 +121,7 @@ def get_obj(obj_str):
     elif(obj_str == 'OBJ4'): # Total Cost 5PI
         return OBJ.OBJ4
 
-#-------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
 
 #def plot_initials(X_initial, Y_initial):
 #    global clusters, nodes
@@ -337,7 +336,7 @@ def get_initials():
     points.append(np.where(clusters == 'n1-standard-16-16')[0])
     return np.array(points)
 
-# -------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------
 
 def run_bo(args, my_seed):
     global BenchName, BenchInput, instances, dataset, ObjBO, ModeBO, ranking, order, plot, verbose
