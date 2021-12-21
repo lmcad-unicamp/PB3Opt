@@ -5,6 +5,8 @@ Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.
 
 ## Usage
 
+You can easily use it using the following commands:
+
 ```
 usage: main.py [-h] [-df DFNAME] [-dfi DFINAME] [-dfapp DFAPPNAME] [-o OUTPUT]
                [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p]
@@ -33,6 +35,8 @@ optional arguments:
   -v, --verbose         Print Iteration Results
   -t, --train           Run training mode
 ```
+
+An example of use would be:
 
 ```
 python main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
