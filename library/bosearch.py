@@ -10,6 +10,8 @@ from GPyOpt.acquisitions.base import AcquisitionBase
 from GPyOpt.acquisitions.EI import AcquisitionEI
 from GPyOpt.methods import BayesianOptimization
 from numpy.random import seed
+import matplotlib.pyplot as plt
+
 
 # -------------------------------------------------------------------
 
@@ -21,7 +23,7 @@ ranking = []
 order = []
 ModeBO = 0
 ObjBO = 0
-verbose = True
+verbose = False
 plot = False
 
 # Bench parameters
@@ -63,7 +65,7 @@ class AcquisitionNew(AcquisitionBase):
             if(ModeBO == Mode.BO2):
                 dis_x.append(p[i]*ei[i][0] + ei[i][0])
             else:
-                dis_x.append(p[i]*ei[i][0])
+                dis_x.append([p[i]*ei[i][0]])
 
         return np.array(dis_x)
 
@@ -140,20 +142,25 @@ def get_obj(obj_str):
 #    plt.show()
 #    return
 
-#def plot_domain():
-#    global clusters
-#    d = np.zeros(len(clusters))
-#    for x in range(0, len(clusters)):
-#        point = list([[x]])
-#        d[x] = objective(point)
-#    print(np.where(d == np.amin(d)))
-#    ax.set_ylabel("f(x)")
-#    ax.set_xlabel("GC Cluster (sorted)")
-#    plt.plot(d)
-#    ax.set_title(BenchName+'-'+BenchInput)
+def plot_domain(PlotName):
+    global clusters
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    d = np.zeros(len(clusters))
+    for x in range(0, len(clusters)):
+        point = list([[x]])
+        d[x] = objective(point)
+    print(np.where(d == np.amin(d)))
+    ax.set_ylabel("f(x)")
+    ax.set_xlabel("Aglomerado de Computadores (x)")
+    plt.plot(d)
+    ax.set_title(BenchName+'-'+BenchInput)
+    plt.grid()
+    ax.set_axisbelow(True)
+    fig.savefig(PlotName+'-domain.pdf')
 
 def get_optima():
-    global clusters, verbose, BenchName, BenchInput
+    global clusters, BenchName, BenchInput
     y = list()
     points = list()
     for x in range(len(clusters)):
@@ -204,6 +211,7 @@ def get_5pitime(x):
     global BenchName, BenchInput
     cluster = get_cluster_name(x)
     query = dataset[(dataset['app_name'] == BenchName) & (dataset['input'] == BenchInput)]
+    print(cluster)
     query = query[query['cluster'] == cluster]
     if(len(query) == 0):
         return 0
@@ -332,7 +340,7 @@ def get_initials():
 # -------------------------------------------------------------------
 
 def run_bo(args, my_seed):
-    global BenchName, BenchInput, instances, dataset, ObjBO, ModeBO, ranking, order, plot
+    global BenchName, BenchInput, instances, dataset, ObjBO, ModeBO, ranking, order, plot, verbose
     InstancesFile  = args['instname']
     DatasetFile    = args['dfname']
     BenchName      = args['benchname']
@@ -344,6 +352,8 @@ def run_bo(args, my_seed):
     initial        = args['initial'] # 1, 4, 8, 16, 32, 50
     OutputPath     = args['outname']
     ite            = args['iterations']
+    plot           = args['plot']
+    verbose        = args['verbose']
     PlotName       = OutputPath + args['mode'] + '-' + BenchName + '-' + BenchInput
     OutputFile     = OutputPath + BenchName + '-' + BenchInput + '.out.' + (args['mode']).lower()
     
@@ -393,7 +403,6 @@ def run_bo(args, my_seed):
     f.write('Best found: x=%s, y=%f\n' % (clusters[int(bo.x_opt[0])], bo.fx_opt))
 
     if(plot):
-        #plot_domain()        
-        #fig.savefig(PlotName+'-domain.pdf')
+        plot_domain(PlotName)        
         bo.plot_convergence(filename=PlotName+'-conv.pdf')
         bo.plot_acquisition(filename=PlotName+'-acq.pdf')

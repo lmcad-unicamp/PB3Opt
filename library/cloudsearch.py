@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import pandas as pd
-import seaborn as sns
 import random
 import numpy as np
 import os
@@ -42,7 +41,7 @@ class CloudSearch:
             self.log.printArgs(args)
 
     def runAnalisses(self, r_app, r, order):
-        #return 1 - spatial.distance.cosine(r_app, r)
+        return 1 - spatial.distance.cosine(r_app, r)
         my_mins = utils.get_top_list(5, r_app)
         c_mins = utils.get_top_list(5, r)
 
@@ -56,7 +55,7 @@ class CloudSearch:
         return b
 
     def getAnalisses(self, r_app, r, order):
-        #return 1 - spatial.distance.cosine(r_app, r)
+        return 1 - spatial.distance.cosine(r_app, r)
         my_mins = utils.get_top_list(5, r_app)
         c_mins = utils.get_top_list(5, r)
 
@@ -200,7 +199,9 @@ class CloudSearch:
                 'mode': self.mode,
                 'outname': path,
                 'initial': self.initial,
-                'iterations': self.iterations
+                'iterations': self.iterations,
+                'verbose': self.verbose,
+                'plot': self.plot
         }
         acc = []
         for i in range(len(X_test)):
@@ -238,7 +239,9 @@ class CloudSearch:
                 'mode': self.mode,
                 'outname': path,
                 'initial': self.initial,
-                'iterations': self.iterations
+                'iterations': self.iterations,
+                'verbose': self.verbose,
+                'plot': self.plot
         }
         acc = []
 
@@ -247,9 +250,9 @@ class CloudSearch:
             my_name = name.split('-')[0]
             my_input = name.split('-')[1]
 
+            print(my_name, my_input)
             r_app = ranking.get_app_rank(my_name, my_input, self.dataset, self.instances)
             target = self.getAppTarget(y_test[i], 0, r_app, X_train, y_train, k)
-            print(target)
             order, rank = ranking.get_rank(target, self.dataset, self.instances, X_train, y_train)
             b = self.runAnalisses(r_app, rank, order)
 
@@ -259,10 +262,10 @@ class CloudSearch:
             args['ranking_order'] = order
             acc.append(b)
 
-            #if(args['mode'] == 'RS'):
-            #    ranksearch.run_rs(args)
-            #else:
-            #    bosearch.run_bo(args, rnum)
+            if(args['mode'] == 'RS'):
+                ranksearch.run_rs(args)
+            else:
+                bosearch.run_bo(args, rnum)
 
         return acc
 
@@ -280,8 +283,9 @@ class CloudSearch:
                     X_train = self.df.iloc[train_index]
                     X_test = self.df.iloc[test_index]
 
-                    print(len(X_train))
-                    print(len(X_test))
+                    if(self.verbose):
+                        print(len(X_train))
+                        print(len(X_test))
 
                     model = Classifier(rnum)
                     auto_k, y_train, y_test = model.run(X_train, X_test)
@@ -298,17 +302,16 @@ class CloudSearch:
                 path = self.OutputPath + '-' + str(times) + '/'
                 self.create_dir(path)
                 X_test = self.df.head(26)
-                X_train = self.df.tail(37)
+                X_train = self.df.tail(38)
                 model = Classifier(rnum)
+                #model.plotDF(X_train, X_test)
                 auto_k, y_train, y_test = model.run(X_train, X_test)
-                print(X_test)
-                print(X_train)
-                #print(y_test)
-                #model.plotDF(X_train, X_test, y_test)
-                #model.runKMeans(X_test, 6)
-                #acc = self.runTest(rnum, path, auto_k, X_train, y_train, X_test, y_test)
-                #self.log.printAccuracy(acc)
-                #acc_g.append(sum(acc)/len(acc))
+                acc = self.runTest(rnum, path, auto_k, X_train, y_train, X_test, y_test)
+                self.log.printAccuracy(acc)
+                if(self.verbose):
+                    #self.log.print(times, acc)
+                    self.log.printAccuracy(acc)
+                    self.log.printK(auto_k)
+                acc_g.append(sum(acc)/len(acc))
                 times += 1
-                break
-            #self.log.printAccuracy(acc_g)
+            self.log.printAccuracy(acc_g)

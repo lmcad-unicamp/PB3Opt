@@ -77,10 +77,10 @@ class Classifier:
         plt.ylabel('Componente Principal 2')
         f.savefig("kmeans.pdf", bbox_inches='tight')
 
-    def plotDF(self, df, df2, y):
+    def plotDF(self, df, df2):
         zeros = []
         for i in range(len(df)):
-            zeros.append(6)
+            zeros.append(0)
 
         ones = []
         for i in range(len(df2)):
@@ -88,14 +88,14 @@ class Classifier:
 
         f = plt.figure()
         X = np.array(df.drop('name', axis=1))
-        t = df.copy()
 
+        t = df.copy()
         t['cluster'] = zeros
+
         t2 = df2.copy()
-        t2['cluster'] = y
+        t2['cluster'] = ones
 
         t3 = t2.append(t)
-        t3 = t2
         print(t2)
         print(t)
 
@@ -107,9 +107,9 @@ class Classifier:
         for i in range(len(df2)):
             ax.annotate(df2['name'].iloc[i], (X[i,0], X[i,1]),  fontsize=8)
 
-        #X = np.array(df.drop('name', axis=1))
-        #for i in range(len(df)):
-        #    ax.annotate(df['name'].iloc[i], (X[i,0], X[i,1]),  fontsize=8)
+        X = np.array(df.drop('name', axis=1))
+        for i in range(len(df)):
+            ax.annotate(df['name'].iloc[i], (X[i,0], X[i,1]),  fontsize=8)
 
         labels = ['Conjunto de Treino', 'Conjunto de Teste']
         h,l = ax.get_legend_handles_labels()
