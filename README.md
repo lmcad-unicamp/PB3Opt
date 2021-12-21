@@ -32,8 +32,6 @@ optional arguments:
   -p, --plot            Plot data
   -v, --verbose         Print Iteration Results
   -t, --train           Run training mode
-
-python main.py -df [dataset-treino] -dfi csvs/instances.csv -dfapp [dataset-apps] -n [ite] -obj OBJ2 -m BO4 -i [initials] -o [output-dir] [-v] [--train] [-p]
 ```
 
 ```
