@@ -70,7 +70,7 @@ def get_array(f):
             buffer = l.split('\t')
             if(len(buffer) > 1):
                 ite = int(float(buffer[0]))
-                if(ite >= N):
+                if(ite >= N+1):
                     break
                 value = float(buffer[1])
                 outs[ite - 1] = value

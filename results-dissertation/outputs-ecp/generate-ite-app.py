@@ -47,7 +47,7 @@ def get_all_files(path):
     files = []
     for f1 in os.listdir(path):
         for f2 in os.listdir(path+'/'+f1):
-            if('info' not in path+'/'+f1+'/'+f2):
+            if('info' not in path+'/'+f1+'/'+f2 and 'laghos' in f2):
                 files.append(path+'/'+f1+'/'+f2)
     return files
 
@@ -70,7 +70,7 @@ def get_array(f):
             buffer = l.split('\t')
             if(len(buffer) > 1):
                 ite = int(float(buffer[0]))
-                if(ite >= N):
+                if(ite >= N+1):
                     break
                 value = float(buffer[1])
                 outs[ite - 1] = value
