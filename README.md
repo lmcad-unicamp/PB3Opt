@@ -2,10 +2,11 @@
 
 PB3Opt implements Cloud Configuration Bayesian Search. This repository also implements the follows approaches:
 
-* BO-6rnd-EIdef
-* BO-6rnd-EIbiased
-* BO-6sel-EIdef
-* Ranking Search
+* BO-6rnd-EIdef: Bayesian optimization using the default Expected Improvement (EI) function to pick the point to be observed and the Gaussian process as the probabilistic model.
+Besides that, initializes with six random points;
+* BO-6rnd-EIbiased: Bayesian optimization using our biased Expected Improvement (EI) function to pick the point to be observed and the Gaussian process as the probabilistic model. Besides that, initializes with the six strategic computer clusters points as starting points;
+* BO-6sel-EIdef: Bayesian optimization equals \boliteratura, however, initialized with six strategic computer clusters as starting points; and
+* Ranking Search: Search for the optimal computer cluster on the list defined by the average-ranking of the group that the workload was predicted to. In this case, the observations are performed according to the order of computer clusters in the average-ranking of the group.
 
 In this context, we implement five modes (BO1, RS, BO3, BO4, BO5). Thus, we have that:
 
