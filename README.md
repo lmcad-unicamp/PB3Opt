@@ -9,10 +9,13 @@ PB3Opt implements Cloud Configuration Bayesian Search. This repository also impl
 
 In this context, we implement five modes (BO1, RS, BO3, BO4, BO5). Thus, we have that:
 
-* BO1 is BO default (BO-6rnd-EIdef)
-* BO3 is BO-6sel-EIdef
-* BO4 is PB3Opt
-* BO5 is BO-6rnd-EIbiased
+* BO1 is the BO default (BO-6rnd-EIdef)
+* BO3 is the BO-6sel-EIdef
+* BO4 is the PB3Opt
+* BO5 is the BO-6rnd-EIbiased
+* RS is the Ranking Search
+
+Besides that, we implement two objective funcionst (OBJ1 and OBJ2). Where, OBJ1 is about experimentation cost and OBJ2 is abot experimentation time. We also implement OBJ3 for experimentation cost with PI and OBJ4 for experimentation time with PI.
 
 ## Usage
 
