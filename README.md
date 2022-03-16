@@ -18,6 +18,10 @@ In this context, we implement five modes (BO1, RS, BO3, BO4, BO5). Thus, we have
 
 Besides that, we implement two objective funcionst (OBJ1 and OBJ2). Where, OBJ1 is about experimentation cost and OBJ2 is about experimentation time. We also implement OBJ3 for experimentation cost with PI and OBJ4 for experimentation time with PI.
 
+## Datasets
+
+Our datasets are available in the /csvs path.
+
 ## Usage
 
 Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPyOpt, you can easily use it using the following commands:
