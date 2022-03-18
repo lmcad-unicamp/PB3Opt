@@ -1,3 +1,4 @@
+----------------------------------------------------------
           ____  ____ _____  ___        _     
          |  _ \| __ )___ / / _ \ _ __ | |_   
          | |_) |  _ \ |_ \| | | | '_ \| __| 
@@ -18,8 +19,7 @@ Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.
 An example of use would be:
 
 ```
-python3 main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv 
-  -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
+python3 main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
 ```
 
 # Details
@@ -46,11 +46,14 @@ Besides that, we implement two objective functions (OBJ1 and OBJ2). Where, OBJ1 
 
 Our datasets are available in the /csvs path. Earch dataset file is explaned as follows:
 
-| File                | Description   |
-| --------------------| ------------- |
-| instance.csv        | Content Cell  |
-| dataset-treino.csv  | Content Cell  |
-| dataset-teste.csv   | Content Cell  |
+| File                	   | Description   |
+| -------------------------| ------------- |
+| instance.csv        	   | Content Cell  |
+| dataset-treino.csv  	   | Content Cell  |
+| dataset-teste.csv   	   | Content Cell  |
+| dataset-apps-treino.csv  | Content Cell  |
+| dataset-apps-teste.csv   | Content Cell  |
+| dataset-teste-pi.csv 	   | Content Cell  |
 
 ## LICENSE
 
