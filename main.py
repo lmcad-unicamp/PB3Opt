@@ -11,19 +11,19 @@ parser.add_argument(
         '-df',
         '--dfname',
         type=str, help='Dataset file name (default: dataset.csv)',
-        default='dataset.csv')
+        default='csvs/dataset.csv')
 parser.add_argument(
         '-dfi',
         '--dfiname',
         type=str,
         help='Instances dataset file name (default: instances.csv)',
-        default='instances.csv')
+        default='csvs/instances.csv')
 parser.add_argument(
         '-dfapp',
         '--dfappname',
         type=str,
         help='App dataset file name (default: dataset-app.csv)',
-        default='dataset-app.csv')
+        default='csvs/dataset-app.csv')
 parser.add_argument(
         '-o',
         '--output',
