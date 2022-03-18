@@ -9,7 +9,7 @@
 
 The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configuration Bayesian Search. 
 
-# Usage
+# USAGE
 
 Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPyOpt, you can easily use it using the following commands:
 
@@ -22,7 +22,7 @@ An example of use would be:
 python3 main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
 ```
 
-# Details
+# DETAILS
 
 This repository also implements the follows approaches:
 
@@ -42,7 +42,7 @@ In this context, we implement five modes (BO1, RS, BO3, BO4, BO5). Thus, we have
 
 Besides that, we implement two objective functions (OBJ1 and OBJ2). Where, OBJ1 is about experimentation cost and OBJ2 is about experimentation time. We also implement OBJ3 for experimentation cost with PI and OBJ4 for experimentation time with PI.
 
-## Datasets
+## DATASETS
 
 Our datasets are available in the /csvs path. Earch dataset file is explaned as follows:
 
