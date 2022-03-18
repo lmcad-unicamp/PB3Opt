@@ -1,4 +1,3 @@
-----------------------------------------------------------
           ____  ____ _____  ___        _     
          |  _ \| __ )___ / / _ \ _ __ | |_   
          | |_) |  _ \ |_ \| | | | '_ \| __| 
@@ -7,7 +6,25 @@
                                 |_|          
 ----------------------------------------------------------
 
-The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configuration Bayesian Search. This repository also implements the follows approaches:
+The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configuration Bayesian Search. 
+
+# Usage
+
+Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPyOpt, you can easily use it using the following commands:
+
+```
+```
+
+An example of use would be:
+
+```
+python3 main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv 
+  -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
+```
+
+# Details
+
+This repository also implements the follows approaches:
 
 * **BO-6rnd-EIdef**: Bayesian optimization using the default Expected Improvement (EI) function to pick the point to be observed and the Gaussian process as the probabilistic model.
 Besides that, initializes with six random points;
@@ -34,20 +51,6 @@ Our datasets are available in the /csvs path. Earch dataset file is explaned as 
 | instance.csv        | Content Cell  |
 | dataset-treino.csv  | Content Cell  |
 | dataset-teste.csv   | Content Cell  |
-
-## Usage
-
-Use the [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPyOpt, you can easily use it using the following commands:
-
-```
-```
-
-An example of use would be:
-
-```
-python3 main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv 
-  -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
-```
 
 ## LICENSE
 
