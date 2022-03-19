@@ -8,7 +8,7 @@ The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configu
 
 # USAGE
 
-Use the [GPy](https://github.com/SheffieldML/GPy) and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPyOpt, you can easily use it using the following commands:
+Use the [GPy](https://github.com/SheffieldML/GPy) and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPy and GPyOpt, you can easily use it using the following commands:
 
 ```
 usage: main.py [-h] [-df DFNAME] [-dfi DFINAME] [-dfapp DFAPPNAME] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p] [-v]
