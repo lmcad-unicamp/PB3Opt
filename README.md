@@ -66,16 +66,16 @@ Besides that, we implement two objective functions (OBJ1 and OBJ2). Where, OBJ1 
 
 ## DATASETS
 
-Our datasets are available in the /csvs path. Earch dataset file is explaned as follows:
+Our datasets are available in the csvs/ path. Earch dataset file is explaned as follows:
 
-| File                	   | Description   |
-| -------------------------| ------------- |
-| instance.csv        	   | Content Cell  |
-| dataset-treino.csv  	   | Content Cell  |
-| dataset-teste.csv   	   | Content Cell  |
-| dataset-apps-treino.csv  | Content Cell  |
-| dataset-apps-teste.csv   | Content Cell  |
-| dataset-teste-pi.csv 	   | Content Cell  |
+* **instance.csv**: Computer clusters instance type file.
+* **dataset-treino.csv**: Search space of train dataset.
+* **dataset-teste.csv**: Search space of test dataset.
+* **dataset-apps-treino.csv**: Workload-Profile dataset of train dataset.
+* **dataset-apps-teste.csv**: Workload-Profile dataset of test dataset.
+* **dataset-teste-pi.csv**: Search space of test dataset with paramount iteration.
+* **dataset-apps-pi-treino.csv**: Workload-Profile dataset of train dataset with pramount iteration.
+* **dataset-apps-pi-teste.csv**: Workload-Profile dataset of test dataset with pramount iteration.
 
 ## LICENSE
 
