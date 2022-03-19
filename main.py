@@ -8,22 +8,22 @@ from library.cloudsearch import CloudSearch
 
 parser = argparse.ArgumentParser(description='Cloud Configuration Bayesian Search.\n')
 parser.add_argument(
-        '-df',
-        '--dfname',
-        type=str, help='Dataset file name (default: dataset.csv)',
-        default='csvs/dataset.csv')
+        '-ss',
+        '--searchspace',
+        type=str, help='Search space dataset file name (default: csvs/dataset-treino.csv)',
+        default='csvs/dataset-treino.csv')
 parser.add_argument(
-        '-dfi',
-        '--dfiname',
+        '-vm',
+        '--virtualmachine',
         type=str,
-        help='Instances dataset file name (default: instances.csv)',
+        help='Instances (virtual machines) dataset file name (default: csvs/instances.csv)',
         default='csvs/instances.csv')
 parser.add_argument(
-        '-dfapp',
-        '--dfappname',
+        '-wp',
+        '--wprofile',
         type=str,
-        help='App dataset file name (default: dataset-app.csv)',
-        default='csvs/dataset-app.csv')
+        help='Workload-Profile dataset file name (default: csvs/dataset-apps-treino.csv)',
+        default='csvs/dataset-apps-treino.csv')
 parser.add_argument(
         '-o',
         '--output',

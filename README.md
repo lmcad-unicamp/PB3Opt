@@ -11,19 +11,19 @@ The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configu
 Use the [GPy](https://github.com/SheffieldML/GPy) and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPy and GPyOpt, you can easily use it using the following commands:
 
 ```
-usage: main.py [-h] [-df DFNAME] [-dfi DFINAME] [-dfapp DFAPPNAME] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p] [-v]
-               [-t]
+usage: main.py [-h] [-ss SEARCHSPACE] [-vm VIRTUALMACHINE] [-wp WPROFILE] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p]
+               [-v] [-t]
 
 Cloud Configuration Bayesian Search.
 
 optional arguments:
   -h, --help            show this help message and exit
-  -df DFNAME, --dfname DFNAME
-                        Dataset file name (default: dataset.csv)
-  -dfi DFINAME, --dfiname DFINAME
-                        Instances dataset file name (default: instances.csv)
-  -dfapp DFAPPNAME, --dfappname DFAPPNAME
-                        App dataset file name (default: dataset-app.csv)
+  -ss SEARCHSPACE, --searchspace SEARCHSPACE
+                        Search space dataset file name (default: csvs/dataset-treino.csv)
+  -vm VIRTUALMACHINE, --virtualmachine VIRTUALMACHINE
+                        Instances (virtual machines) dataset file name (default: csvs/instances.csv)
+  -wp WPROFILE, --wprofile WPROFILE
+                        Workload-Profile dataset file name (default: csvs/dataset-apps-treino.csv)
   -o OUTPUT, --output OUTPUT
                         Output Path Name (default: output/)
   -m MODE, --mode MODE  BO Mode (default: BO1)

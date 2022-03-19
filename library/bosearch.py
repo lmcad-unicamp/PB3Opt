@@ -96,7 +96,7 @@ class Mode(Enum):
 def get_mode(mode_str):
     if(mode_str == 'BO1'):   # BO Default
         return Mode.BO1
-    elif(mode_str == 'BO2'): # BO with classification
+    elif(mode_str == 'BO2'): # BO with classification v1
         return Mode.BO2
     elif(mode_str == 'BO3'): # BO Default (initials)
         return Mode.BO3
