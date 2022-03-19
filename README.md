@@ -70,12 +70,12 @@ Our datasets are available in the csvs/ path. Earch dataset file is explaned as 
 
 * **instance.csv**: Computer clusters instance type file.
 * **dataset-treino.csv**: Search space of train dataset.
-* **dataset-teste.csv**: Search space of test dataset.
+* **dataset-teste.csv**: Search space of all dataset.
 * **dataset-apps-treino.csv**: Workload-Profile dataset of train dataset.
-* **dataset-apps-teste.csv**: Workload-Profile dataset of test dataset.
+* **dataset-apps-teste.csv**: Workload-Profile dataset of all dataset.
 * **dataset-teste-pi.csv**: Search space of test dataset with paramount iteration.
 * **dataset-apps-pi-treino.csv**: Workload-Profile dataset of train dataset with pramount iteration.
-* **dataset-apps-pi-teste.csv**: Workload-Profile dataset of test dataset with pramount iteration.
+* **dataset-apps-pi-teste.csv**: Workload-Profile dataset of all dataset with pramount iteration.
 
 ## LICENSE
 
