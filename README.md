@@ -41,7 +41,7 @@ optional arguments:
 An example of use would be:
 
 ```
-python3 main.py -df csvs/dataset-treino.csv -dfi csvs/instances.csv -dfapp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
+python3 main.py -ss csvs/dataset-treino.csv -vm csvs/instances.csv -wp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
 ```
 
 # DETAILS
