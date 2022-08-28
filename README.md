@@ -16,7 +16,7 @@ Besides that, initializes with six random points;
 * **BO-6sel-EIdef**: Bayesian optimization equals BO-6rnd-EIdef, however, initialized with six strategic computer clusters as starting points; and
 * **Ranking Search**: Search for the optimal computer cluster on the list defined by the average-ranking of the group that the workload was predicted to. In this case, the observations are performed according to the order of computer clusters in the average-ranking of the group.
 
-In this context, we implement five modes (BO1, RS, BO3, BO4, BO5). Thus, we have that:
+In this context, we implemented five modes (BO1, RS, BO3, BO4, BO5). Thus, we have that:
 
 * BO1 is the BO default (BO-6rnd-EIdef)
 * BO3 is the BO-6sel-EIdef
@@ -24,11 +24,11 @@ In this context, we implement five modes (BO1, RS, BO3, BO4, BO5). Thus, we have
 * BO5 is the BO-6rnd-EIbiased
 * RS is the Ranking-Search
 
-Besides that, we implement two objective functions (OBJ1 and OBJ2). Where, OBJ1 is about experimentation cost and OBJ2 is about experimentation time. We also implement OBJ3 for experimentation cost with PI and OBJ4 for experimentation time with PI.
+Besides that, we implemented two objective functions (OBJ1 and OBJ2). Where, OBJ1 is about experimentation cost and OBJ2 is about experimentation time. We also implemented OBJ3 for experimentation cost with PI and OBJ4 for experimentation time with PI.
 
 ## DATASETS
 
-Our datasets are available in the csvs/ path. Earch dataset file is explaned as follows:
+Our datasets are available in the csvs/ path. Each dataset file is explaned as follows:
 
 * **instance.csv**: Computer clusters instance type file.
 * **dataset-treino.csv**: Search space of train dataset.
