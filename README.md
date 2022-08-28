@@ -6,7 +6,7 @@
                                 |_|          
 The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configuration Bayesian Search. 
 
-# DETAILS
+## DETAILS
 
 This repository also implements the following approaches:
 
