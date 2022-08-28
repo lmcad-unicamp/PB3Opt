@@ -14,9 +14,9 @@ class Log:
         print('----------------------------------------------------------')
 
     def printArgs(self, args):
-        print('    Dataset:\t', args.dfname)
-        print('  Instances:\t', args.dfiname)
-        print('Application:\t', args.dfappname)
+        print('    Dataset:\t', args.searchspace)
+        print('  Instances:\t', args.virtualmachine)
+        print('Application:\t', args.wprofile)
         print('     Output:\t', args.output)
         print(' Iterations:\t', args.iterations)
         print('    Initial:\t', args.initial)

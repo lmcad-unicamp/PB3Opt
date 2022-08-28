@@ -21,10 +21,10 @@ from scipy import spatial
 
 class CloudSearch:
     def __init__(self, args):
-        self.DatasetFile = args.dfname
-        self.InstancesFile = args.dfiname
+        self.DatasetFile = args.searchspace
+        self.InstancesFile = args.virtualmachine
         self.OutputPath = args.output
-        self.AppsFile = args.dfappname
+        self.AppsFile = args.wprofile
         self.instances = pd.read_csv(self.InstancesFile, index_col=False, sep=',')
         self.dataset = pd.read_csv(self.DatasetFile, index_col=False, sep=',')
         self.dfApps = pd.read_csv(self.AppsFile, index_col=False, sep=',')
