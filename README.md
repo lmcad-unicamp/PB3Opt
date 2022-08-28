@@ -54,8 +54,7 @@ optional arguments:
   -ss SEARCHSPACE, --searchspace SEARCHSPACE
                         Search space dataset file name (default: csvs/dataset-treino.csv)
   -vm VIRTUALMACHINE, --virtualmachine VIRTUALMACHINE
-                        Instances (virtual machines) dataset file name
-                        (default: csvs/instances.csv)
+                        Instances (virtual machines) dataset file name (default: csvs/instances.csv)
   -wp WPROFILE, --wprofile WPROFILE
                         Workload-Profile dataset file name (default: csvs/dataset-apps-treino.csv)
   -o OUTPUT, --output OUTPUT
