@@ -8,7 +8,7 @@ The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configu
 
 # DETAILS
 
-This repository also implements the follows approaches:
+This repository also implements the following approaches:
 
 * **BO-6rnd-EIdef**: Bayesian optimization using the default Expected Improvement (EI) function to pick the point to be observed and the Gaussian process as the probabilistic model.
 Besides that, initializes with six random points;
