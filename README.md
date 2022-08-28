@@ -11,9 +11,9 @@ The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configu
 This repository also implements the following approaches:
 
 * **BO-6rnd-EIdef**: Bayesian optimization using the default Expected Improvement (EI) function to pick the point to be observed and the Gaussian process as the probabilistic model.
-Besides that, initializes with six random points;
-* **BO-6rnd-EIbiased**: Bayesian optimization using our biased Expected Improvement (EI) function to pick the point to be observed and the Gaussian process as the probabilistic model. Besides that, initializes with the six strategic computer clusters points as starting points;
-* **BO-6sel-EIdef**: Bayesian optimization equals BO-6rnd-EIdef, however, initialized with six strategic computer clusters as starting points; and
+Besides that, it starts with six random points;
+* **BO-6rnd-EIbiased**: Bayesian optimization using our biased Expected Improvement (EI) function to pick the point to be observed and the Gaussian process as the probabilistic model. Besides that, it starts with the six strategic computer clusters points as starting points;
+* **BO-6sel-EIdef**: Bayesian optimization equals BO-6rnd-EIdef, however, it starts with six strategic computer clusters as starting points; and
 * **Ranking Search**: Search for the optimal computer cluster on the list defined by the average-ranking of the group that the workload was predicted to. In this case, the observations are performed according to the order of computer clusters in the average-ranking of the group.
 
 In this context, we implemented five modes (BO1, RS, BO3, BO4, BO5). Thus, we have that:
