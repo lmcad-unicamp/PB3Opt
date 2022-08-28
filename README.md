@@ -46,6 +46,33 @@ Use the [GPy](https://github.com/SheffieldML/GPy) and [GPyOpt library](https://g
 ```
 usage: python3 main.py [-h] [-ss SEARCHSPACE] [-vm VIRTUALMACHINE] [-wp WPROFILE] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p]
                [-v] [-t]
+
+Cloud Configuration Bayesian Search.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -ss SEARCHSPACE, --searchspace SEARCHSPACE
+                        Search space dataset file name (default: csvs/dataset-
+                        treino.csv)
+  -vm VIRTUALMACHINE, --virtualmachine VIRTUALMACHINE
+                        Instances (virtual machines) dataset file name
+                        (default: csvs/instances.csv)
+  -wp WPROFILE, --wprofile WPROFILE
+                        Workload-Profile dataset file name (default:
+                        csvs/dataset-apps-treino.csv)
+  -o OUTPUT, --output OUTPUT
+                        Output Path Name (default: output/)
+  -m MODE, --mode MODE  BO Mode (default: BO1)
+  -obj OBJECTIVE, --objective OBJECTIVE
+                        Objective (default: OBJ1)
+  -i INITIAL, --initial INITIAL
+                        Number of Initial Random Guesses (default: 1)
+  -n ITERATIONS, --iterations ITERATIONS
+                        Number of Guesses (default: 12)
+  -p, --plot            Plot data
+  -v, --verbose         Print Iteration Results
+  -t, --train           Run training mode
+
 ```
 
 An example of use would be:
