@@ -36,8 +36,8 @@ Our datasets are available in the csvs/ path. Each dataset file is explaned as f
 * **dataset-apps-treino.csv**: Workload-Profile dataset of train dataset.
 * **dataset-apps-teste.csv**: Workload-Profile dataset of all dataset.
 * **dataset-teste-pi.csv**: Search space of test dataset with paramount iteration.
-* **dataset-apps-pi-treino.csv**: Workload-Profile dataset of train dataset with pramount iteration.
-* **dataset-apps-pi-teste.csv**: Workload-Profile dataset of all dataset with pramount iteration.
+* **dataset-apps-pi-treino.csv**: Workload-Profile dataset of train dataset with paramount iteration.
+* **dataset-apps-pi-teste.csv**: Workload-Profile dataset of all dataset with paramount iteration.
 
 # USAGE
 
