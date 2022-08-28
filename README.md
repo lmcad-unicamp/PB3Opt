@@ -6,44 +6,6 @@
                                 |_|          
 The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configuration Bayesian Search. 
 
-# USAGE
-
-Use the [GPy](https://github.com/SheffieldML/GPy) and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPy and GPyOpt, you can easily use it using the following commands:
-
-```
-usage: main.py [-h] [-ss SEARCHSPACE] [-vm VIRTUALMACHINE] [-wp WPROFILE] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p]
-               [-v] [-t]
-
-Cloud Configuration Bayesian Search.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -ss SEARCHSPACE, --searchspace SEARCHSPACE
-                        Search space dataset file name (default: csvs/dataset-treino.csv)
-  -vm VIRTUALMACHINE, --virtualmachine VIRTUALMACHINE
-                        Instances (virtual machines) dataset file name (default: csvs/instances.csv)
-  -wp WPROFILE, --wprofile WPROFILE
-                        Workload-Profile dataset file name (default: csvs/dataset-apps-treino.csv)
-  -o OUTPUT, --output OUTPUT
-                        Output Path Name (default: output/)
-  -m MODE, --mode MODE  BO Mode (default: BO1)
-  -obj OBJECTIVE, --objective OBJECTIVE
-                        Objective (default: OBJ1)
-  -i INITIAL, --initial INITIAL
-                        Number of Initial Random Guesses (default: 1)
-  -n ITERATIONS, --iterations ITERATIONS
-                        Number of Guesses (default: 12)
-  -p, --plot            Plot data
-  -v, --verbose         Print Iteration Results
-  -t, --train           Run training mode
-```
-
-An example of use would be:
-
-```
-python3 main.py -ss csvs/dataset-treino.csv -vm csvs/instances.csv -wp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
-```
-
 # DETAILS
 
 This repository also implements the follows approaches:
@@ -60,7 +22,7 @@ In this context, we implement five modes (BO1, RS, BO3, BO4, BO5). Thus, we have
 * BO3 is the BO-6sel-EIdef
 * BO4 is the PB3Opt
 * BO5 is the BO-6rnd-EIbiased
-* RS is the Ranking Search
+* RS is the Ranking-Search
 
 Besides that, we implement two objective functions (OBJ1 and OBJ2). Where, OBJ1 is about experimentation cost and OBJ2 is about experimentation time. We also implement OBJ3 for experimentation cost with PI and OBJ4 for experimentation time with PI.
 
@@ -76,6 +38,21 @@ Our datasets are available in the csvs/ path. Earch dataset file is explaned as 
 * **dataset-teste-pi.csv**: Search space of test dataset with paramount iteration.
 * **dataset-apps-pi-treino.csv**: Workload-Profile dataset of train dataset with pramount iteration.
 * **dataset-apps-pi-teste.csv**: Workload-Profile dataset of all dataset with pramount iteration.
+
+# USAGE
+
+Use the [GPy](https://github.com/SheffieldML/GPy) and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPy and GPyOpt, you can easily use it using the following commands:
+
+```
+usage: python3 main.py [-h] [-ss SEARCHSPACE] [-vm VIRTUALMACHINE] [-wp WPROFILE] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p]
+               [-v] [-t]
+```
+
+An example of use would be:
+
+```
+python3 main.py -ss csvs/dataset-treino.csv -vm csvs/instances.csv -wp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
+```
 
 ## LICENSE
 
