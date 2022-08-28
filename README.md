@@ -52,14 +52,12 @@ Cloud Configuration Bayesian Search.
 optional arguments:
   -h, --help            show this help message and exit
   -ss SEARCHSPACE, --searchspace SEARCHSPACE
-                        Search space dataset file name (default: csvs/dataset-
-                        treino.csv)
+                        Search space dataset file name (default: csvs/dataset-treino.csv)
   -vm VIRTUALMACHINE, --virtualmachine VIRTUALMACHINE
                         Instances (virtual machines) dataset file name
                         (default: csvs/instances.csv)
   -wp WPROFILE, --wprofile WPROFILE
-                        Workload-Profile dataset file name (default:
-                        csvs/dataset-apps-treino.csv)
+                        Workload-Profile dataset file name (default: csvs/dataset-apps-treino.csv)
   -o OUTPUT, --output OUTPUT
                         Output Path Name (default: output/)
   -m MODE, --mode MODE  BO Mode (default: BO1)
