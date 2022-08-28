@@ -28,7 +28,7 @@ Besides that, we implemented two objective functions (OBJ1 and OBJ2). Where, OBJ
 
 ## DATASETS
 
-Our datasets are available in the csvs/ path. Each dataset file is explaned as follows:
+Our datasets are available in the csvs/ path. Each dataset file is explaned below:
 
 * **instance.csv**: Computer clusters instance type file.
 * **dataset-treino.csv**: Search space of train dataset.
