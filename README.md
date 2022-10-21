@@ -4,7 +4,7 @@
          |  __/| |_) |__) | |_| | |_) | |_   
          |_|   |____/____/ \___/| .__/ \__|  
                                 |_|          
-The Profile-Based Biased Bayesian Optimization (PB<sup>3</sup>Opt) implements Cloud Configuration Bayesian Search. 
+The Profile-Based Biased Bayesian Optimization (PB<sup>3</sup>Opt) implements Cloud Configuration Bayesian Search using Expected Improvament Biased. 
 
 ## DETAILS
 
