@@ -20,7 +20,7 @@ In this context, we implemented five modes (BO1, RS, BO3, BO4, BO5). Thus, we ha
 
 * BO1 is the BO default (BO-6rnd-EIdef)
 * BO3 is the BO-6sel-EIdef
-* BO4 is the PB3Opt
+* BO4 is the PB<sup>3</sup>Opt
 * BO5 is the BO-6rnd-EIbiased
 * RS is the Ranking-Search
 
@@ -41,7 +41,7 @@ Our datasets are available in the csvs/ path. Each dataset file is explaned belo
 
 # Building it
 
-To get started with PB3Opt, you need to install Python 3, [GPy](https://github.com/SheffieldML/GPy), and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt). You can easily install them using the following commands:
+To get started with PB<sup>3</sup>Opt, you need to install Python 3, [GPy](https://github.com/SheffieldML/GPy), and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt). You can install them easily using the following commands:
 
 ```
 sudo apt install python3 python3-pip
@@ -55,7 +55,7 @@ git clone git@github.com:lmcad-unicamp/PB3Opt.git
 
 # USAGE
 
-
+You can use PB<sup>3</sup>Opt easily using the following commands:
 
 ```
 usage: python3 main.py [-h] [-ss SEARCHSPACE] [-vm VIRTUALMACHINE] [-wp WPROFILE] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p]
