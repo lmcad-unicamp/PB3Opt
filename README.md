@@ -89,7 +89,9 @@ optional arguments:
 An example of use would be:
 
 ```
-python3 main.py -ss csvs/dataset-treino.csv -vm csvs/instances.csv -wp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o novo/ -v --train -p
+cd PB3Opt
+mkdir outputs
+python3 main.py -ss csvs/dataset-treino.csv -vm csvs/instances.csv -wp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o outputs/ -v --train -p
 ```
 
 ## LICENSE
