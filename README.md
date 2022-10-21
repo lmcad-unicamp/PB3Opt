@@ -26,7 +26,7 @@ In this context, we implemented five modes (BO1, RS, BO3, BO4, BO5). Thus, we ha
 
 Besides that, we implemented two objective functions (OBJ1 and OBJ2). Where, OBJ1 is about experimentation cost and OBJ2 is about experimentation time. We also implemented OBJ3 for experimentation cost with PI and OBJ4 for experimentation time with PI.
 
-## DATASETS
+### DATASETS
 
 Our datasets are available in the csvs/ path. Each dataset file is explaned below:
 
@@ -39,7 +39,7 @@ Our datasets are available in the csvs/ path. Each dataset file is explaned belo
 * **dataset-apps-pi-treino.csv**: Workload-Profile dataset of train dataset with paramount iteration.
 * **dataset-apps-pi-teste.csv**: Workload-Profile dataset of all dataset with paramount iteration.
 
-# Building it
+## Building it
 
 To get started with PB<sup>3</sup>Opt, you need to install Python 3, [GPy](https://github.com/SheffieldML/GPy), and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt). You can install them easily using the following commands:
 
@@ -53,7 +53,7 @@ cd ..
 git clone git@github.com:lmcad-unicamp/PB3Opt.git
 ```
 
-# USAGE
+## USAGE
 
 You can use PB<sup>3</sup>Opt easily using the following commands:
 
