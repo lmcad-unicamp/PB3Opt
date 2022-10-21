@@ -4,7 +4,7 @@
          |  __/| |_) |__) | |_| | |_) | |_   
          |_|   |____/____/ \___/| .__/ \__|  
                                 |_|          
-The Profile-Based Biased Bayesian Optimization (PB3Opt) implements Cloud Configuration Bayesian Search. 
+The Profile-Based Biased Bayesian Optimization (PB<sup>3</sup>Opt) implements Cloud Configuration Bayesian Search. 
 
 ## DETAILS
 
@@ -41,17 +41,21 @@ Our datasets are available in the csvs/ path. Each dataset file is explaned belo
 
 # Building it
 
+To get started with PB3Opt, you need to install Python 3, [GPy](https://github.com/SheffieldML/GPy), and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt). You can easily install them using the following commands:
+
 ```
+sudo apt install python3 python3-pip
 git clone git@github.com:lmcad-unicamp/GPyOpt.git
 cd GPyOpt
 pip install -r requirements.txt
 sudo python setup.py develop
+cd ..
 git clone git@github.com:lmcad-unicamp/PB3Opt.git
 ```
 
 # USAGE
 
-Use the [GPy](https://github.com/SheffieldML/GPy) and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPy and GPyOpt, you can easily use it using the following commands:
+
 
 ```
 usage: python3 main.py [-h] [-ss SEARCHSPACE] [-vm VIRTUALMACHINE] [-wp WPROFILE] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p]
