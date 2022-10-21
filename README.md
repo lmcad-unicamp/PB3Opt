@@ -71,9 +71,7 @@ python3 main.py --help
 
 ## Citation
 
-```
 CAMACHO, Thais Aparecida Silva. PB3Opt: uma estratégia para selecionar aglomerados de computadores na nuvem computacional para cargas computacionais de alto desempenho. 2022. 1 recurso online (96 p.) Dissertação (mestrado) - Universidade Estadual de Campinas, Instituto de Computação, Campinas, SP. Disponível em: https://hdl.handle.net/20.500.12733/3945.
-```
 
 ## LICENSE
 
