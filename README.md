@@ -58,40 +58,15 @@ git clone git@github.com:lmcad-unicamp/PB3Opt.git
 You can use PB<sup>3</sup>Opt easily using the following commands:
 
 ```
-usage: python3 main.py [-h] [-ss SEARCHSPACE] [-vm VIRTUALMACHINE] [-wp WPROFILE] [-o OUTPUT] [-m MODE] [-obj OBJECTIVE] [-i INITIAL] [-n ITERATIONS] [-p]
-               [-v] [-t]
-
-Cloud Configuration Bayesian Search.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -ss SEARCHSPACE, --searchspace SEARCHSPACE
-                        Search space dataset file name (default: csvs/dataset-treino.csv)
-  -vm VIRTUALMACHINE, --virtualmachine VIRTUALMACHINE
-                        Instances (virtual machines) dataset file name (default: csvs/instances.csv)
-  -wp WPROFILE, --wprofile WPROFILE
-                        Workload-Profile dataset file name (default: csvs/dataset-apps-treino.csv)
-  -o OUTPUT, --output OUTPUT
-                        Output Path Name (default: output/)
-  -m MODE, --mode MODE  BO Mode (default: BO1)
-  -obj OBJECTIVE, --objective OBJECTIVE
-                        Objective (default: OBJ1)
-  -i INITIAL, --initial INITIAL
-                        Number of Initial Random Guesses (default: 1)
-  -n ITERATIONS, --iterations ITERATIONS
-                        Number of Guesses (default: 12)
-  -p, --plot            Plot data
-  -v, --verbose         Print Iteration Results
-  -t, --train           Run training mode
-
-```
-
-An example of use would be:
-
-```
 cd PB3Opt
 mkdir outputs
 python3 main.py -ss csvs/dataset-treino.csv -vm csvs/instances.csv -wp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o outputs/ -v --train -p
+```
+
+You can view each option and its description with the following command:
+
+```
+python3 main.py --help
 ```
 
 ## LICENSE
