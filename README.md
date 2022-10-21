@@ -48,7 +48,7 @@ sudo apt install python3 python3-pip
 git clone git@github.com:lmcad-unicamp/GPyOpt.git
 cd GPyOpt
 pip3 install -r requirements.txt
-sudo python setup.py develop
+sudo python3 setup.py develop
 cd ..
 git clone git@github.com:lmcad-unicamp/PB3Opt.git
 ```
