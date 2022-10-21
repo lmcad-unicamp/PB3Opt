@@ -47,7 +47,7 @@ To get started with PB<sup>3</sup>Opt, you need to install Python 3, [GPy](https
 sudo apt install python3 python3-pip
 git clone git@github.com:lmcad-unicamp/GPyOpt.git
 cd GPyOpt
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 sudo python setup.py develop
 cd ..
 git clone git@github.com:lmcad-unicamp/PB3Opt.git
