@@ -39,6 +39,16 @@ Our datasets are available in the csvs/ path. Each dataset file is explaned belo
 * **dataset-apps-pi-treino.csv**: Workload-Profile dataset of train dataset with paramount iteration.
 * **dataset-apps-pi-teste.csv**: Workload-Profile dataset of all dataset with paramount iteration.
 
+# Building it
+
+```
+git clone git@github.com:lmcad-unicamp/GPyOpt.git
+cd GPyOpt
+pip install -r requirements.txt
+sudo python setup.py develop
+git clone git@github.com:lmcad-unicamp/PB3Opt.git
+```
+
 # USAGE
 
 Use the [GPy](https://github.com/SheffieldML/GPy) and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt) with Python 3.8. After installing GPy and GPyOpt, you can easily use it using the following commands:
