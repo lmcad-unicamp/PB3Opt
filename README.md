@@ -69,6 +69,12 @@ You can see details on how to use PB<sup>3</sup>Opt with the following command:
 python3 main.py --help
 ```
 
+## Citation
+
+```
+CAMACHO, Thais Aparecida Silva. PB3Opt: uma estratégia para selecionar aglomerados de computadores na nuvem computacional para cargas computacionais de alto desempenho. 2022. 1 recurso online (96 p.) Dissertação (mestrado) - Universidade Estadual de Campinas, Instituto de Computação, Campinas, SP. Disponível em: https://hdl.handle.net/20.500.12733/3945. Acesso em: 21 out. 2022.
+```
+
 ## LICENSE
 
 This project is being developed at the Institute of Computing - Unicamp as part of @thaisacs master dissertation.
