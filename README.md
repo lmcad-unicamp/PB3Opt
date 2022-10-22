@@ -63,7 +63,7 @@ mkdir outputs
 python3 main.py -ss csvs/dataset-treino.csv -vm csvs/instances.csv -wp csvs/dataset-apps-treino.csv -n 0 -obj OBJ2 -m BO4 -i 6 -o outputs/ -v --train -p
 ```
 
-You can see details on how to use PB<sup>3</sup>Opt with the following command:
+You can see details on how to use PB<sup>3</sup>Opt by running:
 
 ```
 python3 main.py --help
