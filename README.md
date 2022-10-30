@@ -39,11 +39,11 @@ Our datasets are available in the csvs/ path. Each dataset file is explaned belo
 * **dataset-apps-pi-treino.csv**: Workload-Profile dataset of train dataset with Paramount Iterations.
 * **dataset-apps-pi-teste.csv**: Workload-Profile dataset of all dataset with Paramount Iterations.
 
-## Citation
+## CITATION
 
 CAMACHO, Thais Aparecida Silva. PB3Opt: uma estratégia para selecionar aglomerados de computadores na nuvem computacional para cargas computacionais de alto desempenho. 2022. 1 recurso online (96 p.) Dissertação (mestrado) - Universidade Estadual de Campinas, Instituto de Computação, Campinas, SP. Disponível em: https://hdl.handle.net/20.500.12733/3945.
 
-## Building it
+## BUILDING IT
 
 To get started with PB<sup>3</sup>Opt, you need to install Python 3, [GPy](https://github.com/SheffieldML/GPy), and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt). You can install them easily using the following commands:
 
