@@ -42,7 +42,15 @@ Our datasets are available in the csvs/ path. Each dataset file is explaned belo
 ## CITATION
 
 ```
-@article{2022, title={PB3Opt: Profile‐based biased Bayesian optimization to select computing clusters on the cloud}, ISSN={1532-0634}, url={http://dx.doi.org/10.1002/cpe.7540}, DOI={10.1002/cpe.7540}, journal={Concurrency and Computation: Practice and Experience}, publisher={Wiley}, author={Aparecida Silva Camacho, Thais and Martins do Rosario, Vanderson and Oliveira Napoli, Otávio and Borin, Edson}, year={2022}, month={Dec} }
+@article{2022,
+title={PB3Opt: Profile‐based biased Bayesian optimization to select computing clusters on the cloud},
+ISSN={1532-0634},
+url={http://dx.doi.org/10.1002/cpe.7540}, DOI={10.1002/cpe.7540},
+journal={Concurrency and Computation: Practice and Experience},
+publisher={Wiley},
+author={Aparecida Silva Camacho, Thais and Martins do Rosario, Vanderson and Oliveira Napoli, Otávio and Borin, Edson},
+year={2022},
+month={Dec} }
 ```
 ## BUILDING IT
 
