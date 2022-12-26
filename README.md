@@ -53,7 +53,7 @@ author={Aparecida Silva Camacho, Thais and Martins do Rosario, Vanderson and Oli
 year={2022},
 month={Dec} }
 ```
-link: https://doi.org/10.1002/cpe.7540
+
 ## BUILDING IT
 
 To get started with PB<sup>3</sup>Opt, you need to install Python 3, [GPy](https://github.com/SheffieldML/GPy), and [GPyOpt library](https://github.com/lmcad-unicamp/GPyOpt). You can install them easily using the following commands:
