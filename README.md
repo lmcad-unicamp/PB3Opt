@@ -51,7 +51,8 @@ journal={Concurrency and Computation: Practice and Experience},
 publisher={Wiley},
 author={Aparecida Silva Camacho, Thais and Martins do Rosario, Vanderson and Oliveira Napoli, Otávio and Borin, Edson},
 year={2022},
-month={Dec} }
+month={Dec}
+}
 ```
 
 ## BUILDING IT
