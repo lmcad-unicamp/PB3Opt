@@ -49,7 +49,7 @@ url={http://dx.doi.org/10.1002/cpe.7540},
 DOI={10.1002/cpe.7540},
 journal={Concurrency and Computation: Practice and Experience},
 publisher={Wiley},
-author={Aparecida Silva Camacho, Thais and Martins do Rosario, Vanderson and Oliveira Napoli, Otávio and Borin, Edson},
+author={Camacho, Thais Aparecida Silva and Rosario, Vanderson Martins do and Napoli, Otávio Oliveira and Borin, Edson},
 year={2022},
 month={Dec}
 }
