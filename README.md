@@ -1,9 +1,13 @@
+```
           ____  ____ _____  ___        _     
          |  _ \| __ )___ / / _ \ _ __ | |_   
          | |_) |  _ \ |_ \| | | | '_ \| __| 
          |  __/| |_) |__) | |_| | |_) | |_   
          |_|   |____/____/ \___/| .__/ \__|  
-                                |_|          
+                                |_|   
+                         by: thais camacho
+```
+
 The Profile-Based Biased Bayesian Optimization (PB<sup>3</sup>Opt) implements Cloud Configuration Bayesian Search using biased Expected Improvement. 
 
 ## DETAILS
